@@ -1,9 +1,12 @@
 package cn.hangruan.admin.entity;
 
-import com.baomidou.mybatisplus.enums.IdType;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -107,6 +110,11 @@ public class SysUser implements Serializable {
      */
     private Date gmtModified;
 
+    /**
+     * 权限列表
+     */
+    @TableField(exist = false)
+    private List<Authority> authorities;
 
     public Long getId() {
         return id;
@@ -284,31 +292,39 @@ public class SysUser implements Serializable {
         this.gmtModified = gmtModified;
     }
 
+    public List<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
     @Override
     public String toString() {
         return "SysUser{" +
-        ", id=" + id +
-        ", officialOrganId=" + officialOrganId +
-        ", officialDepartId=" + officialDepartId +
-        ", organId=" + organId +
-        ", departId=" + departId +
-        ", code=" + code +
-        ", name=" + name +
-        ", pwd=" + pwd +
-        ", shorthand=" + shorthand +
-        ", sort=" + sort +
-        ", roleId=" + roleId +
-        ", leaderFlag=" + leaderFlag +
-        ", officialTypeId=" + officialTypeId +
-        ", transferTypeId=" + transferTypeId +
-        ", entryDate=" + entryDate +
-        ", retireDate=" + retireDate +
-        ", isJob=" + isJob +
-        ", isAssess=" + isAssess +
-        ", isDisabled=" + isDisabled +
-        ", memo=" + memo +
-        ", gmtCreate=" + gmtCreate +
-        ", gmtModified=" + gmtModified +
-        "}";
+                ", id=" + id +
+                ", officialOrganId=" + officialOrganId +
+                ", officialDepartId=" + officialDepartId +
+                ", organId=" + organId +
+                ", departId=" + departId +
+                ", code=" + code +
+                ", name=" + name +
+                ", pwd=" + pwd +
+                ", shorthand=" + shorthand +
+                ", sort=" + sort +
+                ", roleId=" + roleId +
+                ", leaderFlag=" + leaderFlag +
+                ", officialTypeId=" + officialTypeId +
+                ", transferTypeId=" + transferTypeId +
+                ", entryDate=" + entryDate +
+                ", retireDate=" + retireDate +
+                ", isJob=" + isJob +
+                ", isAssess=" + isAssess +
+                ", isDisabled=" + isDisabled +
+                ", memo=" + memo +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                "}";
     }
 }

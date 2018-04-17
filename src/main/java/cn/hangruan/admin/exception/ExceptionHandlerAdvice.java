@@ -18,7 +18,8 @@ public class ExceptionHandlerAdvice {
 
     @ResponseBody
     @ExceptionHandler(value = {Exception.class})
-    public ResultMessage exceptionHandler() {
+    public ResultMessage exceptionHandler(Exception exception) {
+        System.out.printf(exception.getMessage());
         return new ResultMessage(ResultMessage.SUCCESS, "系统错误", "");
     }
 

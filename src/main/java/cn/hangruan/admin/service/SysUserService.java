@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.service.IService;
  * @author huyanchao
  * @since 2018-04-16
  */
+
 public interface SysUserService extends IService<SysUser> {
 
 }
